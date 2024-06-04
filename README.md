@@ -1,5 +1,5 @@
 #  WEATHWE-5K Benchmark 
-WEATHER-5K dataset consists of a comprehensive collection of data from 5,672 weather stations worldwide, spanning a 10-year period with one-hour intervals. It includes multiple11 crucial weather elements, providing a more reliable and interpretable resource for forecasting.
+WEATHER-5K dataset consists of a comprehensive collection of data from 5,672 weather stations worldwide, spanning a 10-year period with one-hour intervals. It includes multiple crucial weather elements (temperature, dewpint temperature, wind speed, wind rate, sea level pressure), providing a more reliable and interpretable resource for forecasting.
 
 <p align="center">
 <img src=".\asset\Overview.png" height = "400" alt="" align=center />
@@ -44,9 +44,6 @@ pip install -r requirements.txt
 
 2. Prepare Data. You can obtain the well pre-processed datasets from [[OneDrive]](https://hkustconnect-my.sharepoint.com/:f:/g/personal/thanad_connect_ust_hk/EhYDpJPhvixNkfJXXZkKOxcBxTa7ckEE70c65x8PKsYRKQ?e=kSvrrf), Then place and `unzip` the downloaded data in the folder`./dataset`. 
 
-<p align="center">
-<img src=".\asset\Overview.png" height = "400" alt="" align=center />
-</p>
 
 3. Train and evaluate model. We provide the experiment scripts for all benchmarks under the folder `./scripts/`. You can reproduce the experiment results as the following examples:
 
