@@ -2,7 +2,7 @@
 
 model_name=FEDformer
 seq_len=48
-pred_len_arr=(120 )
+pred_len_arr=(168 )
 gpu_arr=(4 )
 
 

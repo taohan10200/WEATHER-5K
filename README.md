@@ -2,7 +2,7 @@
 WEATHER-5K dataset consists of a comprehensive collection of data from 5,672 weather stations worldwide, spanning a 10-year period with one-hour intervals. It includes multiple crucial weather elements (temperature, dewpint temperature, wind speed, wind rate, sea level pressure), providing a more reliable and interpretable resource for forecasting.
 
 <p align="center">
-<img src=".\asset\Overview.png" height = "400" alt="" align=center />
+<img src=".\asset\Overview.png" height = "350" alt="" align=center />
 </p>
 
 
