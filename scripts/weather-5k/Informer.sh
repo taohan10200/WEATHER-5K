@@ -1,8 +1,8 @@
 #!/bin/bash
 model_name=Informer
 seq_len=48
-pred_len_arr=(24 72 120 168 )
-gpu_arr=(4 5 6 7)
+pred_len_arr=(72 )
+gpu_arr=(1 )
 
 for ((i=0; i<${#pred_len_arr[@]}; i++))
 do  
@@ -12,7 +12,7 @@ do
     python -u run.py \
     --task_name global_forecast \
     --is_training 1 \
-    --root_path ./OperStation \
+    --root_path ./WEATHER-5K \
     --model_id weather_$seq_len'_'$pred_len \
     --model $model_name \
     --data Global_Weather_Station \
@@ -31,7 +31,7 @@ do
     --num_workers 8 \
     --target 'TMP' \
     --train_steps 300000 \
-    --val_steps 100000 \
+    --val_steps 20000 \
     --batch_size 1024 \
     --patience  3  \
     --gpu $gpu \

@@ -3,8 +3,8 @@
 model_name=Mamba
 seq_len=48
 
-pred_len_arr=(72 120 168)
-gpu_arr=(0 1 2 )
+pred_len_arr=(72 )
+gpu_arr=(0  )
 
 for ((i=0; i<${#pred_len_arr[@]}; i++))
 do
@@ -13,8 +13,8 @@ do
 
   python -u run.py \
     --task_name global_forecast \
-    --is_training 0 \
-    --root_path ./OperStation \
+    --is_training 1 \
+    --root_path ./WEATHER-5K \
     --model_id weather_$seq_len'_'$pred_len \
     --model $model_name \
     --data Global_Weather_Station \

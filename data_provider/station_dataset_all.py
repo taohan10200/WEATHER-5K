@@ -56,7 +56,7 @@ class Dataset_Weather_Stations_ALL(Dataset):
         # self.station_names = glob.glob(f'{self.root_path}/raw_inter_era5/*.csv')
         with open(f'{self.root_path}/meta_info.json') as f:
             station_info = json.load(f)
-        self.station_names = [f'{root_path}/raw_inter_era5/{i}' for i in list(station_info.keys())]
+        self.station_names = [f'{root_path}/global_weather_stations/{i}' for i in list(station_info.keys())]
         self.num_station = len(self.station_names)
         
         self.num_station = len(self.station_names)
@@ -65,12 +65,19 @@ class Dataset_Weather_Stations_ALL(Dataset):
         elif  flag=='val':
             self.timestamp = pd.date_range(start='2022-01-01', end='2022-12-31-23', freq='1H')
         elif  flag=='test':
+            with open(f'{self.root_path}/percentile.json') as f:
+                dict_data = json.load(f)
+            self.percentiles = []
+            for station_name in self.station_names:
+                station_name = station_name.split('/')[-1] 
+
+                self.percentiles.append(np.array(dict_data[station_name])[None])
+            self.percentiles = np.concatenate(self.percentiles, axis=0)
             self.timestamp = pd.date_range(start='2023-01-01', end='2023-12-31-23', freq='1H')
         self.num_timestamp_input = len(self.timestamp) - (self.seq_len + self.pred_len - 1)
 
         print(f'{self.flag} samples: {len(self.timestamp)}')
 
-        
         data_shape = (self.num_station, len(self.timestamp), 9)
         shared_data = np.zeros(data_shape, dtype=np.float32)
 
@@ -162,10 +169,13 @@ class Dataset_Weather_Stations_ALL(Dataset):
         data = self.batch_sample(indexs)
 
         input = data[ :,:self.seq_len,:]
-        gt = data[:,-self.pred_len:,:]
+        gt = data[:,-(self.pred_len+self.label_len):,:]
+        
         seq_x_mark, seq_x  = input[:,:,:4],input[:,:,4:]
         seq_y_mark, seq_y  = gt[:,:,:4],gt[:,:,4:]
-       
+        if self.flag=='test':
+            percentile = self.percentiles[:(seq_x.shape[0]//350)*350,:,:][:,None,:,:]
+            return seq_x, seq_y, seq_x_mark, seq_y_mark, percentile
         return seq_x, seq_y, seq_x_mark, seq_y_mark
 
     def batch_sample(self, indexs): 

@@ -1,6 +1,6 @@
 from data_provider.data_factory import data_provider
 from exp.exp_basic import Exp_Basic
-from utils.tools import EarlyStopping, adjust_learning_rate, visual
+from utils.tools import EarlyStopping, adjust_learning_rate, visual,visual_multiple
 from utils.metrics import Overall_Metrics, MultiMetricsCalculator
 from utils.logger import Logger
 import torch
@@ -193,7 +193,8 @@ class Exp_Global_Forecast(Exp_Basic):
                     break
                 train_loss = []
                
-
+            if iter_count%2000 ==0:
+                torch.save(self.model.state_dict(), path + '/' + 'checkpoint.pth')
         best_model_path = path + '/' + 'checkpoint.pth'
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.model.load_state_dict(torch.load(best_model_path, map_location=device))
@@ -260,7 +261,6 @@ class Exp_Global_Forecast(Exp_Basic):
 
                 # preds.append(pred)
                 # trues.append(true)
-
                 metric_multi.update(pred, true, percentile)
                 metric_overall.update(pred, true)
                 # for visualization
@@ -269,9 +269,10 @@ class Exp_Global_Forecast(Exp_Basic):
                     if test_data.scale and self.args.inverse:
                         shape = input.shape
                         input = test_data.inverse_transform(input).reshape(shape)
-                    gt = np.concatenate((input[0, :, -1], true[0, :, -1]), axis=0)
-                    pred = np.concatenate((input[0, :, -1], pred[0, :, -1]), axis=0)
-                    visual(gt, pred, os.path.join(vis_folder_path, str(i) + '.pdf'))
+                    gt = np.concatenate((input[0, :, :], true[0, :, :]), axis=0)
+                    pred = np.concatenate((input[0, :, :], pred[0, :, :]), axis=0)
+                    visual_multiple(gt, pred, os.path.join(vis_folder_path, str(i) + '.pdf'),
+                    ['Temperature', 'Dewpoint', 'Wind Angle', 'Wind Rate', 'Sea-level Pressure'])
                 if (i+1) == len(test_loader):
                     break
         avg_mae, avg_mse, SEDI = metric_multi.get_metrics()
@@ -285,7 +286,7 @@ class Exp_Global_Forecast(Exp_Basic):
 
 
         # creat a dataFrame to save mutli-metrics
-        metrics_df = pd.DataFrame({'Variable': ['Temperature', 'Dewpoint Temperature', 'Wind Angle', 'Wind Rate','Mean Sel-level Pressure'],
+        metrics_df = pd.DataFrame({'Variable': ['Temperature', 'Dewpoint Temperature', 'Wind Angle', 'Wind Rate','Sea-level Pressure'],
                                 'MAE': avg_mae.tolist(),
                                 'MSE': avg_mse.tolist(),
                                 'SEDI_99.5': SEDI[0,:].tolist(),

@@ -12,7 +12,7 @@ do
     python -u run.py \
       --task_name global_forecast \
       --is_training 0 \
-      --root_path ./OperStation \
+      --root_path ./WEATHER-5K \
       --model_id weather_$seq_len'_'$pred_len \
       --model $model_name \
       --data Global_Weather_Station \

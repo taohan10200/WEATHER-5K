@@ -53,7 +53,7 @@ class Dataset_Weather_Stations(Dataset):
         # with open(f'{self.root_path}/meta_info.json') as f:
         #     station_info = json.load(f)
         # self.station_names = [f'{root_path}/raw_inter_era5/{i}' for i in list(station_info.keys())]
-        self.station_names = glob.glob(f'{self.root_path}/raw_inter_era5/*.csv')
+        self.station_names = glob.glob(f'{self.root_path}/global_weather_stations/*.csv')
         self.num_station = len(self.station_names)
         if  flag=='train':
             self.timestamp = pd.date_range(start='2014-01-01', end='2021-12-31-23', freq='1H')

@@ -100,7 +100,7 @@ def data_provider(args, flag):
                                     ),
             persistent_workers=True,
             prefetch_factor=3,
-            pin_memory = True,
+            pin_memory = False,
             )
         return data_set, data_loader     
     else:

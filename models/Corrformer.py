@@ -140,10 +140,10 @@ class Model(nn.Module):
         x_mark_enc = x_mark_enc[0][None]
 
         x_dec = x_dec.transpose(0,1)[None].flatten(start_dim=-2)
-        x_dec = torch.cat([x_enc[:,-self.label_len:,:], x_dec], dim=1)
+        # x_dec = torch.cat([x_enc[:,-self.label_len:,:], x_dec], dim=1)
 
         x_mark_dec = x_mark_dec[0][None]
-        x_mark_dec = torch.cat([x_mark_enc[:,-self.label_len:,:], x_mark_dec],dim=1)
+        # x_mark_dec = torch.cat([x_mark_enc[:,-self.label_len:,:], x_mark_dec],dim=1)
 
 
         # init & normalization

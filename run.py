@@ -20,15 +20,15 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='TimesNet')
 
     # basic config
-    parser.add_argument('--task_name', type=str, required=True, default='long_term_forecast',
+    parser.add_argument('--task_name', type=str, default='long_term_forecast',
                         help='task name, options:[long_term_forecast, short_term_forecast, imputation, classification, anomaly_detection]')
-    parser.add_argument('--is_training', type=int, required=True, default=1, help='status')
-    parser.add_argument('--model_id', type=str, required=True, default='test', help='model id')
-    parser.add_argument('--model', type=str, required=True, default='Autoformer',
+    parser.add_argument('--is_training', type=int, default=1, help='status')
+    parser.add_argument('--model_id', type=str, default='test', help='model id')
+    parser.add_argument('--model', type=str, default='Autoformer',
                         help='model name, options: [Autoformer, Transformer, TimesNet]')
 
     # data loader
-    parser.add_argument('--data', type=str, required=True, default='ETTm1', help='dataset type')
+    parser.add_argument('--data', type=str, default='ETTm1', help='dataset type')
     parser.add_argument('--root_path', type=str, default='./data/ETT/', help='root path of the data file')
     parser.add_argument('--data_path', type=str, default='ETTh1.csv', help='data file')
     parser.add_argument('--features', type=str, default='M',

@@ -2,8 +2,8 @@
 model_name=Autoformer
 seq_len=48
 
-pred_len_arr=(24 72 120 168)
-gpu_arr=(0 1 2 3)
+pred_len_arr=(120)
+gpu_arr=(0)
 
 for ((i=0; i<${#pred_len_arr[@]}; i++))
 do
@@ -13,7 +13,7 @@ do
   python -u run.py \
     --task_name global_forecast \
     --is_training 1 \
-    --root_path ./OperStation \
+    --root_path ./WEATHER-5K \
     --model_id weather_$seq_len'_'$pred_len \
     --model $model_name \
     --data Global_Weather_Station \

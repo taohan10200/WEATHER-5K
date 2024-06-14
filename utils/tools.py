@@ -91,6 +91,18 @@ def visual(true, preds=None, name='./pic/test.pdf'):
     plt.legend()
     plt.savefig(name, bbox_inches='tight')
 
+def visual_multiple(true, preds=None, name='./pic/test.pdf', vname=None):
+
+
+    fig, axes = plt.subplots(nrows=1, ncols=5, figsize=(15, 3))
+
+    for i in range(5):
+        axes[i].plot(true[:, i], label='GroundTruth')
+        axes[i].plot(preds[:, i], label='Prediction', linewidth=2)
+        axes[i].set_title(vname[i] if vname is not None else f'Variable {i}')
+        axes[i].legend()
+    plt.tight_layout()
+    plt.savefig(name, bbox_inches='tight')
 
 def adjustment(gt, pred):
     anomaly_state = False

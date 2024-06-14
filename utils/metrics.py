@@ -81,6 +81,7 @@ def SEDI(predicted_values, true_values, percentile):
                       ])
     gt_events_list = []
     pred_events_list = []
+
     for i in range(num_percentile // 2):
         gt_events_low = (true_values < percentile[:,:,:,i])
         pred_events_low = np.sum(np.logical_and(predicted_values< percentile[:,:,:,i], gt_events_low),axis=(0,1)) 
