@@ -1,4 +1,9 @@
 #  WEATHER-5K Benchmark 
+## Paper: [WEATHER-5K: A Large-scale Global Station Weather Dataset Towards Comprehensive Time-series Forecasting Benchmark](https://arxiv.org/abs/2406.14399)
+
+## Introduction
+
+The WEATHER-5K dataset is a large-scale time series forecasting dataset containing weather data from 5,672 weather stations worldwide. It is a valuable resource for researchers and developers in the field of time-series forecasting, providing a comprehensive evaluation of various methods and models.
 WEATHER-5K dataset consists of a comprehensive collection of data from 5,672 weather stations worldwide, spanning a 10-year period with one-hour intervals. It includes multiple crucial weather elements (temperature, dewpint temperature, wind speed, wind rate, sea level pressure), providing a more reliable and interpretable resource for forecasting.
 
 <p align="center">
@@ -647,18 +652,20 @@ bash ./scripts/weather-5k/iTransformer.sh
 - Include the newly added model in the `Exp_Basic.model_dict` of  `./exp/exp_basic.py`.
 - Create the corresponding scripts under the folder `./scripts`.
 
-<!-- ## Citation
+## Citation
 
-If you find this repo useful, please cite our paper.
+If you find WEATHER-5K is useful, please cite our paper.
 
 ```
-@inproceedings{wu2023timesnet,
-  title={TimesNet: Temporal 2D-Variation Modeling for General Time Series Analysis},
-  author={Haixu Wu and Tengge Hu and Yong Liu and Hang Zhou and Jianmin Wang and Mingsheng Long},
-  booktitle={International Conference on Learning Representations},
-  year={2023},
+@misc{han2024weather5k,
+    title={WEATHER-5K: A Large-scale Global Station Weather Dataset Towards Comprehensive Time-series Forecasting Benchmark},
+    author={Tao Han and Song Guo and Zhenghao Chen and Wanghan Xu and Lei Bai},
+    year={2024},
+    eprint={2406.14399},
+    archivePrefix={arXiv},
+    primaryClass={cs.LG}
 }
-``` -->
+```
 
 ## Contact
 If you have any questions or suggestions, feel free to contact:
