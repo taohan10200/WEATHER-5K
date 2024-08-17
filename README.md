@@ -635,7 +635,7 @@ The results are reported at 4 different prediction lengths: 24, 72, 120, and 168
 pip install -r requirements.txt
 ```
 
-2. Prepare Data. You can obtain the well pre-processed datasets from [[OneDrive]](https://hkustconnect-my.sharepoint.com/:u:/g/personal/thanad_connect_ust_hk/ESwj0TtAqw1Fu_eorfmEsL0B1TMJ8DXxMgEzDd-w1R0k_w?e=DLOhRn), Then place and `unzip` the downloaded data in the folder`./WEATHER-5K`. 
+2. Prepare Data. You can obtain the well pre-processed datasets from [[OneDrive]](https://hkustconnect-my.sharepoint.com/:u:/g/personal/thanad_connect_ust_hk/EZGm7DP0qstElZwafr_U2YoBk5Ryt9rv7P31OqnUBZUPAA?e=5r0wEo), Then place and `unzip` the downloaded data in the folder`./WEATHER-5K`. 
 
 
 3. Train and evaluate model. We provide the experiment scripts for all benchmarks under the folder `./scripts/`. You can reproduce the experiment results as the following examples:
