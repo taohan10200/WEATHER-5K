@@ -85,7 +85,7 @@ def visual(true, preds=None, name='./pic/test.pdf'):
     Results visualization
     """
     plt.figure()
-    plt.plot(true, label='GroundTruth', linewidth=2)
+    plt.plot(true, label='GroundTruth', linewidth=3.5)
     if preds is not None:
         plt.plot(preds, label='Prediction', linewidth=2)
     plt.legend()
@@ -97,8 +97,8 @@ def visual_multiple(true, preds=None, name='./pic/test.pdf', vname=None):
     fig, axes = plt.subplots(nrows=1, ncols=5, figsize=(15, 3))
 
     for i in range(5):
-        axes[i].plot(true[:, i], label='GroundTruth')
-        axes[i].plot(preds[:, i], label='Prediction', linewidth=2)
+        axes[i].plot(true[:, i], label='GroundTruth', linewidth=2)
+        axes[i].plot(preds[:, i], label='Prediction', linewidth=2, linestyle='dotted')
         axes[i].set_title(vname[i] if vname is not None else f'Variable {i}')
         axes[i].legend()
     plt.tight_layout()

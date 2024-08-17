@@ -187,6 +187,8 @@ class Exp_Long_Term_Forecast(Exp_Basic):
         preds = []
         trues = []
         folder_path = './test_results/' + setting + '/'
+        import pdb
+        pdb.set_trace()
         if not os.path.exists(folder_path):
             os.makedirs(folder_path)
         metric_multi = MultiMetricsCalculator()
