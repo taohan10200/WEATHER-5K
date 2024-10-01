@@ -25,6 +25,7 @@ class Exp_Global_Forecast(Exp_Basic):
 
         if self.args.use_multi_gpu and self.args.use_gpu:
             model = nn.DataParallel(model, device_ids=self.args.device_ids)
+        print(f'Params: {sum(p.numel() for p in model.parameters() if p.requires_grad)/10**6} MB')
         return model
 
     def _get_data(self, flag):

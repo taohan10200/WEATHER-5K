@@ -6,4 +6,5 @@ WEATHER-5K/real_time_data/
 WEATHER-5K/processed/
 WEATHER-5K/processed_data_complete/
 results/
+MADIS/
 tmp_script.sh

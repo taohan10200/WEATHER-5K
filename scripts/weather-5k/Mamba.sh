@@ -4,7 +4,7 @@ model_name=Mamba
 seq_len=48
 
 pred_len_arr=(72 )
-gpu_arr=(0  )
+gpu_arr=(0 )
 
 for ((i=0; i<${#pred_len_arr[@]}; i++))
 do
@@ -38,5 +38,5 @@ do
     --patience 3 \
     --gpu $gpu \
     --lradj cosine_iter \
-    --inverse  &
+    --inverse  
 done
