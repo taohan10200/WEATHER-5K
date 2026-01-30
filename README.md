@@ -10,8 +10,6 @@ WEATHER-5K dataset consists of a comprehensive collection of data from 5,672 wea
 </p>
 
 
-:triangular_flag_on_post:**News** (2024.06)  We release the WEATHER-5K as a comprehensive benchmark, allowing for a thorough evaluation of time-series forecasting methods and facilitates advancements in this field.
-
 ## Leaderboard of WEATHER-5K benchmark
 
 Until now, we have bnchmarked the following models in this repo:
