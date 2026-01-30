@@ -1,5 +1,4 @@
 #  WEATHER-5K Benchmark 
-## Paper: [WEATHER-5K: A Large-scale Global Station Weather Dataset Towards Comprehensive Time-series Forecasting Benchmark](https://arxiv.org/abs/2406.14399)
 
 ## Introduction
 
@@ -652,27 +651,7 @@ bash ./scripts/weather-5k/iTransformer.sh
 - Include the newly added model in the `Exp_Basic.model_dict` of  `./exp/exp_basic.py`.
 - Create the corresponding scripts under the folder `./scripts`.
 
-## Citation
 
-If you find WEATHER-5K is useful, please cite our paper.
-
-```
-@misc{han2024weather5k,
-    title={WEATHER-5K: A Large-scale Global Station Weather Dataset Towards Comprehensive Time-series Forecasting Benchmark},
-    author={Tao Han and Song Guo and Zhenghao Chen and Wanghan Xu and Lei Bai},
-    year={2024},
-    eprint={2406.14399},
-    archivePrefix={arXiv},
-    primaryClass={cs.LG}
-}
-```
-
-## Contact
-If you have any questions or suggestions, feel free to contact:
-
-- Tao Han (hantao10200@gmail.com)
-
-Or describe it in Issues.
 
 ## Acknowledgement
 
